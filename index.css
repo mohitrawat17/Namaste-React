@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    margin: 12px;
+
+}
+
+.nav-items ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+.nav-items ul li{
+    padding: 8px;
+}
+
+
+.card{
+    /* height: 285px; */
+    width: 200px;
+    border: 1px solid black;
+    padding: 3px 3px 0px 3px;
+}
+
+
+.card-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px
+}
