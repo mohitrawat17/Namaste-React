@@ -19,7 +19,7 @@
 .card{
     /* height: 285px; */
     width: 200px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 3px 3px 0px 3px;
     margin: 5px;
 }
@@ -28,5 +28,15 @@
 .card-list{
     display: flex;
     flex-wrap: wrap;
-    gap:20px
+    gap:20px;
 }
+
+
+
+
+
+.loader {
+    background-color: #dad2d2;
+    background-size: 200% 100%;
+  }
+  

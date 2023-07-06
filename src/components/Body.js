@@ -1,7 +1,7 @@
 import Card from "./Card";
 import { restaurantList } from "../utils";
 import { useEffect, useState } from "react";
-
+import Shimmer from "./Shimmer";
 
 const filterRes=(stateVar,restaurants)=>{
   return restaurants.filter(
@@ -32,7 +32,8 @@ const Body = () => {
   }
 
 
-    return (
+    return restaurants.length ==0 ? (<Shimmer/>) :
+    (
       <>
       <div className="search-bar">
         <input type="text" placeholder="Search" value={stateVar} onChange={(e)=>{setStateVar(e.target.value)}}></input>
@@ -51,7 +52,11 @@ const Body = () => {
             )
           })
         }
-  
+         
+         <div>
+        
+        
+         </div>
   
       </div>
       </>
