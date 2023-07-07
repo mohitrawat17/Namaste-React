@@ -3,64 +3,76 @@ import { restaurantList } from "../utils";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
-const filterRes=(stateVar,restaurants)=>{
-  return restaurants.filter(
-    (restaurant)=>restaurant.data.name.includes(stateVar)
-   )
+const filterRes = (stateVar, restaurants) => {
+  return restaurants.filter((restaurant) =>
+   restaurant?.data?.name?.toLowerCase()?.includes(stateVar.toLowerCase())    // in JS Roti(actual data) ===rOti(data we searched in search box) returns false. So, we convert both into lower case roti===roti returns true 
+  )
 }
 
 
 const Body = () => {
 
-  const [stateVar,setStateVar]=useState("");
-  const [restaurants,setRestaurants]=useState([])
 
-  useEffect(()=>{
+  const [allRestaurants, setAllRestaurants] = useState([]) //for all restaurants available
+  const [stateVar, setStateVar] = useState("");  // for the working of search input box
+  const [filterRestaurants, setFilterRestaurants] = useState([]) // for filtering restaurants
+
+  useEffect(() => {
     //using use effect to fetch side effects
     fetchRestaurants();
-  },[])
+  }, [])
 
 
   // fetching real time swiggy data from swiggy's API
-  async function fetchRestaurants(){
-  const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.8973944&lng=78.0880129&page_type=DESKTOP_WEB_LISTING");
-    const json=await data.json();
-    // console.log(json);
+  async function fetchRestaurants() {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.8973944&lng=78.0880129&page_type=DESKTOP_WEB_LISTING");
+    console.log(data);
+    const json = await data.json();
+    console.log(json);
 
     //updating restaurant cards using its state varirable
-    setRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards)
   }
 
 
-    return restaurants.length ==0 ? (<Shimmer/>) :
+
+  if(!allRestaurants) return null;
+
+  
+
+  return allRestaurants.length == 0 ? (<Shimmer />) :
     (
       <>
-      <div className="search-bar">
-        <input type="text" placeholder="Search" value={stateVar} onChange={(e)=>{setStateVar(e.target.value)}}></input>
-        <button onClick={()=>{
-             //filter restaurant data
-             const data=filterRes(stateVar,restaurants);
-             // changing state
-             setRestaurants(data)
-        }}>Search</button>
-      </div>
-      <div className="card-list">
+        <div className="search-bar">
+          <input type="text" placeholder="Search" value={stateVar} onChange={(e) => { setStateVar(e.target.value) }}></input>
+          <button onClick={() => {
+            //filter restaurant data
+            const data = filterRes(stateVar, allRestaurants);
+            // changing state
+            setFilterRestaurants(data)
+          }}>Search</button>
+        </div>
+        <div className="card-list">
         {
-          restaurants.map((restaurant) => {
-            return (
-              <Card {...restaurant.data} key={restaurant.data.id} />
-            )
-          })
-        }
-         
-         <div>
-        
-        
-         </div>
-  
-      </div>
+          //logic for no restaurant found 
+            filterRestaurants.length == 0 ?                  //condition : if filtered data length is equal to 0 or not eual to 0 then do this,
+             <h1>No data Found</h1>                          // if length actually 0
+             : filterRestaurants.map((restaurant) => {       //if length not equal to 0
+              return (
+                <Card {...restaurant.data} key={restaurant.data.id} />
+              )
+            })
+          }
+
+          <div>
+
+
+          </div>
+
+        </div>
       </>
     )
-  }
+}
 
-  export default Body;
+export default Body;
