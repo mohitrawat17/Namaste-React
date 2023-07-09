@@ -1,7 +1,7 @@
 import Card from "./Card";
-import { restaurantList } from "../utils";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const filterRes = (stateVar, restaurants) => {
   return restaurants.filter((restaurant) =>
@@ -26,9 +26,9 @@ const Body = () => {
   // fetching real time swiggy data from swiggy's API
   async function fetchRestaurants() {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.8973944&lng=78.0880129&page_type=DESKTOP_WEB_LISTING");
-    console.log(data);
+    // console.log(data);
     const json = await data.json();
-    console.log(json);
+    // console.log(json);
 
     //updating restaurant cards using its state varirable
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
@@ -60,7 +60,7 @@ const Body = () => {
              <h1>No data Found</h1>                          // if length actually 0
              : filterRestaurants.map((restaurant) => {       //if length not equal to 0
               return (
-                <Card {...restaurant.data} key={restaurant.data.id} />
+              <Link to={`restaurant/${restaurant.data.id}` } key={restaurant.data.id} >  <Card {...restaurant.data} /></Link>
               )
             })
           }

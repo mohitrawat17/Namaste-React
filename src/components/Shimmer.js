@@ -9,7 +9,7 @@ const Shimmer = () => {
 
             <div className="card-list">
 
-                {Array(15)
+                {Array(15)  
                     .fill("")
                     .map((item, index) => {
                         return <div key={index} className="card">
