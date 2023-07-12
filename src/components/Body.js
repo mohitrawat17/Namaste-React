@@ -2,6 +2,9 @@ import Card from "./Card";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import SearchIcon from '@mui/icons-material/Search';
+
+
 
 const filterRes = (stateVar, restaurants) => {
   return restaurants.filter((restaurant) =>
@@ -43,15 +46,15 @@ const Body = () => {
 
   return allRestaurants.length == 0 ? (<Shimmer />) :
     (
-      <>
+      <div className="body">
         <div className="search-bar">
           <input type="text" placeholder="Search" value={stateVar} onChange={(e) => { setStateVar(e.target.value) }}></input>
-          <button onClick={() => {
+          <SearchIcon style={{cursor:"pointer", fontSize:"28px"}} onClick={() => {
             //filter restaurant data
             const data = filterRes(stateVar, allRestaurants);
             // changing state
             setFilterRestaurants(data)
-          }}>Search</button>
+          }}/>
         </div>
         <div className="card-list">
         {
@@ -60,7 +63,7 @@ const Body = () => {
              <h1>No data Found</h1>                          // if length actually 0
              : filterRestaurants.map((restaurant) => {       //if length not equal to 0
               return (
-              <Link to={`restaurant/${restaurant.data.id}` } key={restaurant.data.id} >  <Card {...restaurant.data} /></Link>
+              <Link to={`restaurant/${restaurant.data.id}` } key={restaurant.data.id}  style={{ textDecoration : "none", color:"black"}}>  <Card {...restaurant.data} /></Link>
               )
             })
           }
@@ -71,7 +74,7 @@ const Body = () => {
           </div>
 
         </div>
-      </>
+      </div>
     )
 }
 

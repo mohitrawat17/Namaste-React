@@ -8,6 +8,7 @@ import About from "./components/About"
 import Error from "./components/Error";
 import Contact from "./components/Contact";
 import Card_Detail from "./components/Card_Detail";
+import Profile from "./components/Profile"
 
 const Layout = () => {
   return (
@@ -28,7 +29,13 @@ const appRouter= createBrowserRouter([
       {
         path: "/about",
         element:<About/>,
-      },
+        children:[
+          {
+            path:"/about/profile",
+            element:<Profile />
+          }
+        ]
+      },     
       {
         path: "/contact",
         element:<Contact/>,

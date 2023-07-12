@@ -1,19 +1,62 @@
+
+
+/* -------------------HEADER PART------------------- */
+
 .header{
     display: flex;
     justify-content: space-between;
     margin: 12px;
-
+    font-family: 'Hind', sans-serif;
 }
-
 .nav-items ul{
     display: flex;
-    justify-content: space-around;
     list-style-type: none;
+    margin-left: 500px;
 }
 
 .nav-items ul li{
-    padding: 8px;
+    padding:8px 45px 8px 0px;
+    padding-left: 40px;
+    font-size: 18px;
+    color:black;
 }
+
+
+
+
+.nav-items ul li:hover{
+    color: rgb(244, 209, 68);
+}
+
+.loginBtn{
+    display: flex;
+    align-items: center;
+}
+
+
+/* -------------------BODY PART------------------- */
+.body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.search-bar{
+margin-bottom: 30px;
+
+}
+
+.search-bar input{
+    padding: 0px 0px 2px 5px;
+    font-size: 18px;
+    margin-right: 8px;
+    border: none;
+    border-bottom: 2px solid rgb(110, 107, 107);
+    outline: none;
+}
+
 
 
 .card{
@@ -21,7 +64,7 @@
     width: 200px;
     /* border: 1px solid black; */
     padding: 3px 3px 0px 3px;
-    margin: 5px;
+    margin: 10px;
 }
 
 

@@ -2,12 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-
 const Title = () => {
   return (
    <Link to="/"> <img
       alt="logo"
-      style={{ width: "80px" }}
+      style={{ width: "88px" }}
       src="https://img.freepik.com/premium-vector/chef-food-restaurant-logo_7085-179.jpg"
     /></Link>
   );
@@ -25,16 +24,17 @@ export const Header=()=>{
      <Title/>
      <div className="nav-items">
          <ul>
-          <Link to="/"><li>Home</li></Link>
-          <Link to="/about"><li>About</li></Link>
-          <Link to="/contact"><li>Contact</li></Link>
+          <Link to="/" style={{ textDecoration : "none"}}>  <li>Home</li></Link>
+          <Link to="/about" style={{ textDecoration : "none"}}><li>About</li></Link>
+          <Link to="/contact" style={{ textDecoration : "none"}}><li>Contact</li></Link>
           <li>Cart</li>
          </ul>
      </div>
-
-     {
+     <div className="loginBtn">     {
           loggedIn ? <button onClick={()=>setLoggedIn(false)}>Login</button> : <button onClick={()=>setLoggedIn(true)}>Logout</button>
      }
+     </div>
+
      </div>
   );
 }
