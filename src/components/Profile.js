@@ -1,5 +1,7 @@
 const Profile=()=>{
+    console.log("1");
     return(
+     
         <>
         <h1>
         this is profile section
