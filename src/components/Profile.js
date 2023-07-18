@@ -1,10 +1,10 @@
-const Profile=()=>{
+const Profile=({name})=>{
     console.log("1");
     return(
      
         <>
         <h1>
-        this is profile section
+        {name}
         </h1>
         </>
             )

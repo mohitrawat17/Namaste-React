@@ -83,3 +83,14 @@ margin-bottom: 30px;
     background-size: 200% 100%;
   }
   
+.recomm-card{
+    border-top: 1px solid grey;
+    border-bottom:1px solid grey;
+    display: flex;
+    justify-content: space-between;
+    margin:30px 20px 30px 20px;
+}
+
+.recomm-image{
+    margin:10px
+}

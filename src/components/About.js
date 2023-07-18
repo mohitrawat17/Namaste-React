@@ -9,7 +9,8 @@ const About = () => {
     <div>
       about us page
     </div>
-    <Outlet/>
+    {/* <Outlet/> */}
+    <Profile name={"mohit"}/>
     <ProfileClass name={"mohit"}/>
     </>
   )

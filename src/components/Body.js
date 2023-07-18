@@ -24,7 +24,7 @@ const Body = () => {
     //using use effect to fetch side effects
     fetchRestaurants();
   }, [])
-
+  
 
   // fetching real time swiggy data from swiggy's API
   async function fetchRestaurants() {
@@ -38,7 +38,7 @@ const Body = () => {
     setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards)
   }
 
-
+    console.log(filterRestaurants);
 
   if(!allRestaurants) return null;
 
