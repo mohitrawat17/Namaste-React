@@ -24,27 +24,26 @@ const Body = () => {
     //using use effect to fetch side effects
     fetchRestaurants();
   }, [])
-  
+
 
   // fetching real time swiggy data from swiggy's API
-  async function fetchRestaurants() {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.8973944&lng=78.0880129&page_type=DESKTOP_WEB_LISTING");
-    // console.log(data);
+  let fetchRestaurants=async()=> {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5135084&lng=88.402884&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
-    // console.log(json);
+    console.log(json);
 
     //updating restaurant cards using its state varirable
     setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
     setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards)
   }
+// console.log(filterRes);
 
-    console.log(filterRestaurants);
 
   if(!allRestaurants) return null;
 
   
 
-  return allRestaurants.length == 0 ? (<Shimmer />) :
+  return allRestaurants.length === 0 ? (<Shimmer />) :
     (
       <div className="body">
         <div className="search-bar">
