@@ -20,22 +20,22 @@ export const Header = () => {
   const isOnline=useOnline();
   const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <div className="header">
+    <div className="flex h-25 justify-between shadow-lg">
       <Title />
-      <div className="nav-items">
-        <ul>
+      <div >
+        <ul className="flex py-8 ml-80 ">
           <Link to="/" style={{ textDecoration: "none" }}>
             {" "}
-            <li>Home</li>
+            <li className="px-6 hover:text-green-400">Home</li>
           </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <li>About</li>
+            <li className="px-6 hover:text-green-400">About</li>
           </Link>
           <Link to="/contact" style={{ textDecoration: "none" }}>
-            <li>Contact</li>
+            <li className="px-6 hover:text-green-400">Contact</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
-          <li>Cart</li>
+          <li className="px-6 hover:text-green-400">Cart</li>
           </Link>
         </ul>
       </div>

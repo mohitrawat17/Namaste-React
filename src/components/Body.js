@@ -50,9 +50,10 @@ const Body = () => {
   return allRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
-      <div className="search-bar">
+    <div className="m-4 mt-8">
+      <div className="mt-4 pt-2 pl-2 pr-2 flex justify-center mb-7">
         <input
+        className=" border-b-2 mr-2 text-center outline-none text-xl"
           type="text"
           placeholder="Search"
           value={stateVar}
@@ -61,6 +62,7 @@ const Body = () => {
           }}
         ></input>
         <SearchIcon
+        className="mb-3 w-4"
           style={{ cursor: "pointer", fontSize: "28px" }}
           onClick={() => {
             //filter restaurant data
@@ -70,7 +72,7 @@ const Body = () => {
           }}
         />
       </div>
-      <div className="card-list">
+      <div className="flex flex-wrap justify-center">
         {
           //logic for no restaurant found
           filterRestaurants.length == 0 ? ( //condition : if filtered data length is equal to 0 or not eual to 0 then do this,
