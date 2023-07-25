@@ -6,10 +6,10 @@ import Footer from "./components/Footer";
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 // import About from "./components/About"
 import Error from "./components/Error";
-import Contact from "./components/Contact";
 import Card_Detail from "./components/Card_Detail";
 import Profile from "./components/Profile"
 import Cart from "./components/Cart";
+import Help from './components/Help';
 
 
 //lazy loading => bundles the About component code in a different js file and only loads it when needed
@@ -45,8 +45,8 @@ const appRouter= createBrowserRouter([
         ]
       },     
       {
-        path: "/contact",
-        element:<Contact/>,
+        path: "/help",
+        element:<Help/>,
       },
       {
         path: "/cart",

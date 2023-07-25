@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../helper/useOnline";
-import InstaMart from "./InstaMart";
 
 const Title = () => {
   return (
@@ -9,7 +8,7 @@ const Title = () => {
       {" "}
       <img
         alt="logo"
-        style={{ width: "88px" }}
+        className="w-24 sm:w-16 md:w-20"
         src="https://img.freepik.com/premium-vector/chef-food-restaurant-logo_7085-179.jpg"
       />
     </Link>
@@ -31,8 +30,8 @@ export const Header = () => {
           <Link to="/about" style={{ textDecoration: "none" }}>
             <li className="px-6 hover:text-green-400">About</li>
           </Link>
-          <Link to="/contact" style={{ textDecoration: "none" }}>
-            <li className="px-6 hover:text-green-400">Contact</li>
+          <Link to="/help" style={{ textDecoration: "none" }}>
+            <li className="px-6 hover:text-green-400">Help</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
           <li className="px-6 hover:text-green-400">Cart</li>
@@ -41,15 +40,15 @@ export const Header = () => {
       </div>
 
       {/* to show login or not */}
-      <h3>{isOnline? "🟢": '🔴' }</h3>
-      <div className="loginBtn">
+      <h3 className="my-auto ml-60">{isOnline? "🟢": '🔴' }</h3>
+      <button className="mr-2 my-auto ">
         {" "}
         {loggedIn ? (
           <button onClick={() => setLoggedIn(false)}>Login</button>
         ) : (
           <button onClick={() => setLoggedIn(true)}>Logout</button>
         )}
-      </div>
+      </button>
     </div>
   );
 };
