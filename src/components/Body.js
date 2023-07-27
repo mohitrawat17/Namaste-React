@@ -1,9 +1,10 @@
 import Card from "./Card";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import useOnline from "../helper/useOnline";
+import Context from "../helper/Context"
 
 const filterRes = (stateVar, restaurants) => {
   return restaurants.filter(
@@ -16,6 +17,8 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]); //for all restaurants available
   const [stateVar, setStateVar] = useState(""); // for the working of search input box
   const [filterRestaurants, setFilterRestaurants] = useState([]); // for filtering restaurants
+  const{user,setDynamicUser}=useContext(Context)
+  console.log(user);
 
   //using use effect to fetch side effects
   useEffect(() => {
@@ -25,16 +28,17 @@ const Body = () => {
   // fetching real time swiggy data from swiggy's API
   let fetchRestaurants = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5135084&lng=88.402884&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=28.705211966712664&lng=77.10231561265124"
     );
     const json = await data.json();
     // console.log(json);
 
     //updating restaurant cards using its state varirable
-    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+// console.log(json?.data?.success?.cards[5]?.gridWidget);
   };
-  // console.log(filterRes);
+  // console.log(filterRestaurants);
 
   //using custom hook to know if user is online or not. This hook gives us boolean value
   const isOnline = useOnline();
@@ -71,6 +75,14 @@ const Body = () => {
             setFilterRestaurants(data);
           }}
         />
+
+       <input type="text" placeholder={user.username} className="ml-20 border-b-2" onChange={(e)=>{
+        setDynamicUser({
+          username:e.target.value,
+          gmail:"newmail@gmail.com"
+        })
+       }}></input>
+
       </div>
       <div className="flex flex-wrap justify-center">
         {
@@ -82,12 +94,12 @@ const Body = () => {
               //if length not equal to 0
               return (
                 <Link
-                  to={`restaurant/${restaurant.data.id}`}
-                  key={restaurant.data.id}
+                  to={`restaurant/${restaurant.info.id}`}
+                  key={restaurant.info.id}
                   style={{ textDecoration: "none", color: "black" }}
                 >
                   {" "}
-                  <Card {...restaurant.data} />
+                  <Card {...restaurant.info} />
                 </Link>
               );
             })
