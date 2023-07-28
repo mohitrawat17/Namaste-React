@@ -18,7 +18,7 @@ const Body = () => {
   const [stateVar, setStateVar] = useState(""); // for the working of search input box
   const [filterRestaurants, setFilterRestaurants] = useState([]); // for filtering restaurants
   const{user,setDynamicUser}=useContext(Context)
-  console.log(user);
+  // console.log(user);
 
   //using use effect to fetch side effects
   useEffect(() => {

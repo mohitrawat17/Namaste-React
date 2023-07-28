@@ -30,16 +30,16 @@ export const Header = () => {
         <ul className="flex py-8 ml-80 ">
           <Link to="/" style={{ textDecoration: "none" }}>
             {" "}
-            <li className="px-6 hover:text-green-400">Home</li>
+            <li className="px-6 hover:text-orange-500">Home</li>
           </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <li className="px-6 hover:text-green-400">About</li>
+            <li className="px-6 hover:text-orange-500">About</li>
           </Link>
           <Link to="/help" style={{ textDecoration: "none" }}>
-            <li className="px-6 hover:text-green-400">Help</li>
+            <li className="px-6 hover:text-orange-500">Help</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
-          <li className="px-6 hover:text-green-400">Cart</li>
+          <li className="px-6 hover:text-orange-500">Cart</li>
           </Link>
         </ul>
       </div>
@@ -47,14 +47,12 @@ export const Header = () => {
       {/* to show login or not */}
       <h3 className="my-auto ml-60">{isOnline? "🟢": '🔴' }</h3>
       <h3 className="my-auto font-bold">{user.username}</h3>
-      <button className="mr-2 my-auto ">
-        {" "}
+     
         {loggedIn ? (
           <button onClick={() => setLoggedIn(false)}>Login</button>
         ) : (
           <button onClick={() => setLoggedIn(true)}>Logout</button>
         )}
-      </button>
     </div>
   );
 };
