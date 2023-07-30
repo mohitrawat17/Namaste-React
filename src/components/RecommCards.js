@@ -3,7 +3,7 @@ import { IMG_CARD } from "../utils";
 const RecommCards = ({name,price,description,imageId}) => {
   return !imageId ?(
     (
-      <div className="flex justify-between border-y-[1px] m-3 py-2">
+      <div className="flex justify-between m-3 py-2">
           <div className="detail">
             <h2 className='font-bold'>{name}</h2>
             <p className='font-light'>{description}</p>
@@ -17,14 +17,14 @@ const RecommCards = ({name,price,description,imageId}) => {
           </div>
     )
   ):(
-    <div className="flex justify-between border-y-[1px] m-3 py-2">
-        <div className="detail">
+    <div className="flex justify-between m-3 py-2">
+        <div className="w-7/12">
           <h2 className='font-bold'>{name}</h2>
           <p className='font-light'>{description}</p>
           <h3 className='font-semibold'>₹ {price/100}</h3>
           
         </div>
-        
+
         <div >
           <img className="rounded-2xl" src={IMG_CARD+imageId} style={{width:"160px"}}/>
         </div>

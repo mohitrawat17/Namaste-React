@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnline from "../helper/useOnline";
 import Context from "../helper/Context";
+import { useSelector } from "react-redux";
 
 const Title = () => {
   return (
@@ -21,6 +22,12 @@ export const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const {user}=useContext(Context)
   // console.log(user.name);
+
+
+  // subscribing to store
+  const cartItems=useSelector(store=>store.cart.items);
+  console.log(cartItems);
+
   return (
 
     
@@ -39,7 +46,7 @@ export const Header = () => {
             <li className="px-6 hover:text-orange-500">Help</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
-          <li className="px-6 hover:text-orange-500">Cart</li>
+          <li className="px-6 hover:text-orange-500">Cart ({cartItems.length})</li>
           </Link>
         </ul>
       </div>

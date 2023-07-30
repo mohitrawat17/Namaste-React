@@ -36,7 +36,7 @@ const Body = () => {
     //updating restaurant cards using its state varirable
     setAllRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
     setFilterRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-// console.log(json?.data?.success?.cards[5]?.gridWidget);
+// console.log(json?.data?.success);
   };
   // console.log(filterRestaurants);
 

@@ -11,6 +11,8 @@ import Profile from "./components/Profile"
 import Cart from "./components/Cart";
 import Help from './components/Help';
 import Context from "./helper/Context";
+import { Provider } from "react-redux";
+import store from "./helper/store";
 
 //lazy loading => bundles the About component code in a different js file and only loads it when needed
 const About = lazy(() => import('./components/About'))
@@ -25,7 +27,10 @@ const Layout = () => {
 
 
   return (
-    //overriding default context value
+    // providing store in our react application
+    <Provider store={store}>
+
+    {/* overriding default context value */}
     <Context.Provider
       value={{
         user: dynamicUser,
@@ -36,6 +41,7 @@ const Layout = () => {
       <Outlet />
       <Footer />
     </Context.Provider>
+    </Provider>
   )
 }
 
