@@ -14,12 +14,12 @@ const Card_Detail=()=>{
 
     const [restaurant,recomm]=useRestaurant(resId);
 
-
+// console.log(recomm);
     //dispatching action for demo
     const dispatch=useDispatch();
-     const handleAddItem=()=>{
-      // dispatch(addItem("banana"))
-     };
+    //  const handleAddItem=()=>{
+    //   dispatch(addItem("banana"))
+    //  };
      
      // actual dispatching action with data
      const addFoodItem=(food)=>{
@@ -43,7 +43,7 @@ const Card_Detail=()=>{
         <h3 className="border-t-2 text-center text-green-500">{restaurant?.avgRating} ☆</h3>
         </div>
         </div>
-        <div className="p-1 m-5 bg-green-500 text-white w-14 cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold" onClick={()=>handleAddItem()}>Add</div>
+        {/* <div className="p-1 m-5 bg-green-500 text-white w-14 cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold" onClick={()=>handleAddItem()}>Add</div> */}
 
         <div className="text-center mt-4 text-2xl font-semibold text-orange-400">
           What's New ?

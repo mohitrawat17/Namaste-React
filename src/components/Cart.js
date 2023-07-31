@@ -18,9 +18,9 @@ const Cart = () => {
   }
 
    //dispatching removeItem action
-   const handleRemoveItem=()=>{
-      dispatch(removeItem());
-   }
+  //  const handleRemoveItem=()=>{
+  //     dispatch(removeItem());
+  //  }
   
   return (
     <div className='flex flex-col m-10 items-center'>
@@ -35,7 +35,7 @@ const Cart = () => {
 
     <div className='w-96 flex justify-between'>
     <div className='bg-orange-400 py-1 px-2 rounded-lg cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold' onClick={()=>handleClearCart()}>Clear Cart</div>
-    <div className='bg-orange-400 py-1 px-2 rounded-lg cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold' onClick={()=>handleRemoveItem()}>Remove</div>
+    <div className='bg-orange-400 py-1 px-2 rounded-lg cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold'>Next</div>
     </div>
     </div>
   )

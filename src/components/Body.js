@@ -7,9 +7,10 @@ import useOnline from "../helper/useOnline";
 import Context from "../helper/Context"
 
 const filterRes = (stateVar, restaurants) => {
+  
   return restaurants.filter(
     (restaurant) =>
-      restaurant?.data?.name?.toLowerCase()?.includes(stateVar.toLowerCase()) // in JS Roti(actual data) ===rOti(data we searched in search box) returns false. So, we convert both into lower case roti===roti returns true
+      restaurant?.info?.name?.toLowerCase()?.includes(stateVar.toLowerCase()) // in JS Roti(actual data) ===rOti(data we searched in search box) returns false. So, we convert both into lower case roti===roti returns true
   );
 };
 
@@ -19,12 +20,11 @@ const Body = () => {
   const [filterRestaurants, setFilterRestaurants] = useState([]); // for filtering restaurants
   const{user,setDynamicUser}=useContext(Context)
   // console.log(user);
-
+  
   //using use effect to fetch side effects
   useEffect(() => {
     fetchRestaurants();
   }, []);
-
   // fetching real time swiggy data from swiggy's API
   let fetchRestaurants = async () => {
     const data = await fetch(
@@ -76,12 +76,6 @@ const Body = () => {
           }}
         />
 
-       <input type="text" placeholder={user.username} className="ml-20 border-b-2" onChange={(e)=>{
-        setDynamicUser({
-          username:e.target.value,
-          gmail:"newmail@gmail.com"
-        })
-       }}></input>
 
       </div>
       <div className="flex flex-wrap justify-center">

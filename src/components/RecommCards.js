@@ -1,13 +1,16 @@
 import React from 'react'
 import { IMG_CARD } from "../utils";
-const RecommCards = ({name,price,description,imageId}) => {
+const RecommCards = ({defaultPrice, name,price,description,imageId}) => {
   return !imageId ?(
     (
       <div className="flex justify-between m-3 py-2">
           <div className="detail">
             <h2 className='font-bold'>{name}</h2>
             <p className='font-light'>{description}</p>
-            <h3 className='font-semibold'>₹ {price/100}</h3>
+            {
+              !price ? <h3 className='font-semibold'>₹ {defaultPrice/100}</h3>
+              : <h3 className='font-semibold'>₹ {price/100}</h3>
+            }
             
           </div>
           
@@ -21,7 +24,10 @@ const RecommCards = ({name,price,description,imageId}) => {
         <div className="w-7/12">
           <h2 className='font-bold'>{name}</h2>
           <p className='font-light'>{description}</p>
-          <h3 className='font-semibold'>₹ {price/100}</h3>
+          {
+              !price ? <h3 className='font-semibold'>₹ {defaultPrice/100}</h3>
+              : <h3 className='font-semibold'>₹ {price/100}</h3>
+            }
           
         </div>
 

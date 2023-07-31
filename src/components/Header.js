@@ -26,7 +26,7 @@ export const Header = () => {
 
   // subscribing to store
   const cartItems=useSelector(store=>store.cart.items);
-  console.log(cartItems);
+  // console.log(cartItems);
 
   return (
 
@@ -37,16 +37,16 @@ export const Header = () => {
         <ul className="flex py-8 ml-80 ">
           <Link to="/" style={{ textDecoration: "none" }}>
             {" "}
-            <li className="px-6 hover:text-orange-500">Home</li>
+            <li className="font-bold text-lg px-6 hover:text-orange-500">Home</li>
           </Link>
           <Link to="/about" style={{ textDecoration: "none" }}>
-            <li className="px-6 hover:text-orange-500">About</li>
+            <li className="font-bold text-lg px-6 hover:text-orange-500">About</li>
           </Link>
           <Link to="/help" style={{ textDecoration: "none" }}>
-            <li className="px-6 hover:text-orange-500">Help</li>
+            <li className="font-bold text-lg px-6 hover:text-orange-500">Help</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
-          <li className="px-6 hover:text-orange-500">Cart ({cartItems.length})</li>
+          <li className="font-bold text-lg px-6 hover:text-orange-500">Cart ({cartItems.length})</li>
           </Link>
         </ul>
       </div>
