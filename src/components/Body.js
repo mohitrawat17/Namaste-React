@@ -18,7 +18,7 @@ const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]); //for all restaurants available
   const [stateVar, setStateVar] = useState(""); // for the working of search input box
   const [filterRestaurants, setFilterRestaurants] = useState([]); // for filtering restaurants
-  const{user,setDynamicUser}=useContext(Context)
+  // const{user,setDynamicUser}=useContext(Context)
   // console.log(user);
   
   //using use effect to fetch side effects
@@ -34,8 +34,8 @@ const Body = () => {
     // console.log(json);
 
     //updating restaurant cards using its state varirable
-    setAllRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-    setFilterRestaurants(json?.data?.success?.cards[5]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
 // console.log(json?.data?.success);
   };
   // console.log(filterRestaurants);
