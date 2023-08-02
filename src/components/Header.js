@@ -9,6 +9,7 @@ const Title = () => {
     <Link to="/">
       {" "}
       <img
+      data-testid="logo"
         alt="logo"
         className="w-24 sm:w-16 md:w-20"
         src="https://img.freepik.com/premium-vector/chef-food-restaurant-logo_7085-179.jpg"
