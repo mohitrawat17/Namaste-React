@@ -3,11 +3,11 @@
 const Shimmer = () => {
     return (
         <>
-            <div className="loader" style={{width:"220px", height:"25px"}}>
+            <div  style={{width:"220px", height:"25px"}}>
               
             </div>
 
-            <div className="card-list">
+            <div data-testid="shimmer">
 
                 {Array(15)  
                     .fill("")

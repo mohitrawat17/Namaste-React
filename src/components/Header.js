@@ -47,13 +47,13 @@ export const Header = () => {
             <li className="font-bold text-lg px-6 hover:text-orange-500">Help</li>
           </Link>
           <Link to="/cart" style={{ textDecoration: "none" }}>
-          <li className="font-bold text-lg px-6 hover:text-orange-500">Cart ({cartItems.length})</li>
+          <li className="font-bold text-lg px-6 hover:text-orange-500" data-testid="cart">Cart ({cartItems.length})</li>
           </Link>
         </ul>
       </div>
 
       {/* to show login or not */}
-      <h3 className="my-auto ml-60">{isOnline? "🟢": '🔴' }</h3>
+      <h3 className="my-auto ml-60" data-testid="status">{isOnline? "🟢": '🔴' }</h3>
       <h3 className="my-auto font-bold">{user.username}</h3>
      
         {loggedIn ? (

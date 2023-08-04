@@ -48,18 +48,18 @@ const Card_Detail=()=>{
         <div className="text-center mt-4 text-2xl font-semibold text-orange-400">
           What's New ?
         </div>
-
+        <ul data-testid="id">
         {
           recomm.map((card)=>{
               return(
-                <div key={card?.card?.info?.id} className="border-y-[1px]">
+                <li key={card?.card?.info?.id} className="border-y-[1px]">
                 <RecommCards key={card?.card?.info?.id} {...card?.card?.info}/>
-                <div className="p-1 ml-3 mb-3 bg-green-500 text-white w-14 cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold" onClick={()=>addFoodItem(card?.card?.info)}>Add</div>
-                </div>
+                <button data-testid="add-btn" className="p-1 ml-3 mb-3 bg-green-500 text-white w-14 cursor-pointer  hover:scale-95 transition-transform duration-200 text-center tracking-wide text-lg  font-semibold" onClick={()=>addFoodItem(card?.card?.info)}>Add</button>
+                </li>
               )
           })
         }
-
+        </ul>
 
 
 

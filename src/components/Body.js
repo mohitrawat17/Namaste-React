@@ -34,8 +34,8 @@ const Body = () => {
     // console.log(json);
 
     //updating restaurant cards using its state varirable
-    setAllRestaurants(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
-    setFilterRestaurants(json?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setAllRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
+    setFilterRestaurants(json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle?.restaurants);
 // console.log(json?.data?.success);
   };
   // console.log(filterRestaurants);
@@ -57,6 +57,7 @@ const Body = () => {
     <div className="m-4 mt-8">
       <div className="mt-4 pt-2 pl-2 pr-2 flex justify-center mb-7">
         <input
+        data-testid="input"
         className=" border-b-2 mr-2 text-center outline-none text-xl"
           type="text"
           placeholder="Search"
@@ -66,6 +67,7 @@ const Body = () => {
           }}
         ></input>
         <SearchIcon
+        data-testid="search"
         className="mb-3 w-4"
           style={{ cursor: "pointer", fontSize: "28px" }}
           onClick={() => {
@@ -78,7 +80,7 @@ const Body = () => {
 
 
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div data-testid="res-list" className="flex flex-wrap justify-center">
         {
           //logic for no restaurant found
           filterRestaurants.length == 0 ? ( //condition : if filtered data length is equal to 0 or not eual to 0 then do this,
